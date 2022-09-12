@@ -58,10 +58,14 @@ public class Main {
     }
 
     private static void playerTurn(char[][] board, Scanner scanner) {
-
-        System.out.println("Player One's turn (Enter a placement 1-9)");
-        String userInput = scanner.nextLine();
-
+        String userInput;
+        while (true) {
+            System.out.println("Player One's turn (Enter a placement 1-9)");
+            userInput = scanner.nextLine();
+            if (isValidMove(board, Integer.parseInt(userInput))) {
+                break;
+            }
+        }
         placeMove(board, userInput, 'X');
     }
 
