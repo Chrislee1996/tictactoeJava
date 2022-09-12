@@ -3,5 +3,6 @@ public class Main {
         char[][] board = {{' ', ' ', ' '},
                           {' ', ' ', ' '},
                           {' ', ' ', ' '}};
+        System.out.println(board[0][0]);
     }
 }
