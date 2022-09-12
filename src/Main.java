@@ -8,9 +8,7 @@ public class Main {
                           {' ', ' ', ' '}};
         printBoard(board);
 
-        Scanner scanner = new Scanner(System.in);
-
-        playerMove(board, scanner);
+        playerTurn(board);
 
         Random random = new Random();
         int computerMove;
@@ -50,7 +48,10 @@ public class Main {
         }
     }
 
-    private static void playerMove(char[][] board, Scanner scanner) {
+    private static void playerTurn(char[][] board) {
+        Scanner scanner = new Scanner(System.in);
+
+
         System.out.println("Player One's turn (Enter a placement 1-9)");
         String userInput = scanner.nextLine();
 
