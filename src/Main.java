@@ -29,6 +29,22 @@ public class Main {
 
     private static boolean isGameFinished(char[][] board) {
 
+        if ((board[0][0] == 'X' && board[0][1] == 'X' && board[0][2] == 'X') ||
+            (board[1][0] == 'X' && board[1][1] == 'X' && board[1][2] == 'X') ||
+            (board[2][0] == 'X' && board[2][1] == 'X' && board[2][2] == 'X') ||
+
+            (board[0][0] == 'X' && board[1][0] == 'X' && board[2][0] == 'X') ||
+            (board[0][1] == 'X' && board[1][1] == 'X' && board[2][1] == 'X') ||
+            (board[0][2] == 'X' && board[1][2] == 'X' && board[2][2] == 'X') ||
+
+            (board[0][0] == 'X' && board[1][1] == 'X' && board[2][2] == 'X') ||
+            (board[0][2] == 'X' && board[1][1] == 'X' && board[2][0] == 'X')) {
+            printBoard(board);
+            System.out.println("Player Wins!");
+            return true;
+        }
+
+
         for (int i =0 ; i < board.length ; i++) {
             for (int j = 0; j < board[i].length ; j++) {
                 if (board[i][j] == ' ') {
@@ -36,6 +52,8 @@ public class Main {
                 }
             }
         }
+        printBoard(board);
+        System.out.println("The game has ended in a tie");
         return true;
     }
 
