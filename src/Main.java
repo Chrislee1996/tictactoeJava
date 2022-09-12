@@ -1,9 +1,20 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        char[][] board = {{'1', '2', '3'},
-                          {'4', '5', '6'},
-                          {'7', '8', '9'}};
+        char[][] board = {{' ', ' ', ' '},
+                          {' ', ' ', ' '},
+                          {' ', ' ', ' '}};
         printBoard(board);
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Player One's turn (Enter a placement 1-9)");
+
+        String userInput = scanner.nextLine();
+
+        System.out.println(userInput);
+
     }
 
 
