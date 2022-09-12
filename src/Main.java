@@ -13,10 +13,23 @@ public class Main {
 
         while(true) {
             playerTurn(board,scanner);
+            if (isGameFinished(board)) {
+                break;
+            }
+
             printBoard(board);
+
             computerTurn(board);
+            if (isGameFinished(board)) {
+                break;
+            }
             printBoard(board);
         }
+    }
+
+    private static boolean isGameFinished(char[][] board) {
+
+        return false;
     }
 
     private static void computerTurn(char[][] board) {
@@ -64,6 +77,8 @@ public class Main {
             userInput = scanner.nextLine();
             if (isValidMove(board, Integer.parseInt(userInput))) {
                 break;
+            } else {
+                System.out.println(userInput + " Is An Invalid placement! Try again");
             }
         }
         placeMove(board, userInput, 'X');
