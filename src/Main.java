@@ -13,14 +13,15 @@ public class Main {
         playerMove(board, scanner);
 
         Random random = new Random();
-        
+        int computerMove;
         while(true) {
-            int computerMove = random.nextInt(9) + 1;
+            computerMove = random.nextInt(9) + 1;
             if(isValidMove(board, computerMove)) {
                 break;
             }
         }
 
+        placeMove(board, Integer.toString(computerMove), 'O');
         printBoard(board);
     }
 
@@ -53,37 +54,37 @@ public class Main {
         System.out.println("Player One's turn (Enter a placement 1-9)");
         String userInput = scanner.nextLine();
 
-        placeMove(board, userInput);
+        placeMove(board, userInput, 'X');
     }
 
-    private static void placeMove(char[][] board, String userInput) {
-        switch(userInput) {
+    private static void placeMove(char[][] board, String position, char symbol) {
+        switch(position) {
             case "1":
-                board[0][0] = 'X';
+                board[0][0] = symbol;
                 break;
             case "2":
-                board[0][1] = 'X';
+                board[0][1] = symbol;
                 break;
             case "3":
-                board[0][2] = 'X';
+                board[0][2] = symbol;
                 break;
             case "4":
-                board[1][0] = 'X';
+                board[1][0] = symbol;
                 break;
             case "5":
-                board[1][1] = 'X';
+                board[1][1] = symbol;
                 break;
             case "6":
-                board[1][2] = 'X';
+                board[1][2] = symbol;
                 break;
             case "7":
-                board[2][0] = 'X';
+                board[2][0] = symbol;
                 break;
             case "8":
-                board[2][1] = 'X';
+                board[2][1] = symbol;
                 break;
             case "9":
-                board[2][2] = 'X';
+                board[2][2] = symbol;
                 break;
             default:
                 System.out.println("Invalid move :(");
