@@ -9,6 +9,12 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
+        playerTurn(board, scanner);
+
+        printBoard(board);
+    }
+
+    private static void playerTurn(char[][] board, Scanner scanner) {
         System.out.println("Player One's turn (Enter a placement 1-9)");
 
         String userInput = scanner.nextLine();
@@ -46,8 +52,6 @@ public class Main {
             default:
                 System.out.println("Invalid move :(");
         }
-
-        printBoard(board);
     }
 
 
