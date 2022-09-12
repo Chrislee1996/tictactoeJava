@@ -75,7 +75,7 @@ public class Main {
         int computerMove;
         while(true) {
             computerMove = random.nextInt(9) + 1;
-            if(isValidMove(board, computerMove)) {
+            if(isValidMove(board, Integer.toString(computerMove))) {
                 break;
             }
         }
@@ -83,25 +83,25 @@ public class Main {
         placeMove(board, Integer.toString(computerMove), 'O');
     }
 
-    private static boolean isValidMove(char[][] board, int position) {
+    private static boolean isValidMove(char[][] board, String position) {
         switch(position) {
-            case 1:
+            case "1":
                 return (board[0][0] == ' ');
-            case 2:
+            case "2":
                 return (board[0][1] == ' ');
-            case 3:
+            case "3":
                 return (board[0][2] == ' ');
-            case 4:
+            case "4":
                 return (board[1][0] == ' ');
-            case 5:
+            case "5":
                 return (board[1][1] == ' ');
-            case 6:
+            case "6":
                 return (board[1][2] == ' ');
-            case 7:
+            case "7":
                 return (board[2][0] == ' ');
-            case 8:
+            case "8":
                 return (board[2][1] == ' ');
-            case 9:
+            case "9":
                 return (board[2][2] == ' ');
             default:
                 return false;
@@ -113,7 +113,7 @@ public class Main {
         while (true) {
             System.out.println("Player One's turn (Enter a placement 1-9)");
             userInput = scanner.nextLine();
-            if (isValidMove(board, Integer.parseInt(userInput))) {
+            if (isValidMove(board, userInput)) {
                 break;
             } else {
                 System.out.println(userInput + " Is An Invalid placement! Try again");
