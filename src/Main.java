@@ -10,18 +10,21 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        playerTurn(board, scanner);
+        playerMove(board, scanner);
 
         Random random = new Random();
-        int computerPlay = random.nextInt(9) + 1;
-
+        
+        while(true) {
+            int computerMove = random.nextInt(9) + 1;
+            if(isValidMove(board, computerMove)) {
+                break;
+            }
+        }
 
         printBoard(board);
     }
 
-    private static boolean isSpaceAvailable(char[][] board, int position) {
-        System.out.println("Player One's turn (Enter a placement 1-9)");
-        String userInput = scanner.nextLine();
+    private static boolean isValidMove(char[][] board, int position) {
         switch(position) {
             case 1:
                 return (board[0][0] == ' ');
@@ -42,16 +45,18 @@ public class Main {
             case 9:
                 return (board[2][2] == ' ');
             default:
-                System.out.println("Invalid move :(");
+                return false;
         }
     }
 
-    private static void playerTurn(char[][] board, Scanner scanner) {
+    private static void playerMove(char[][] board, Scanner scanner) {
         System.out.println("Player One's turn (Enter a placement 1-9)");
         String userInput = scanner.nextLine();
 
-//        System.out.println(userInput);
+        placeMove(board, userInput);
+    }
 
+    private static void placeMove(char[][] board, String userInput) {
         switch(userInput) {
             case "1":
                 board[0][0] = 'X';
