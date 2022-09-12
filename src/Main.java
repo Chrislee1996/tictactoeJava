@@ -29,18 +29,15 @@ public class Main {
 
     private static boolean isGameFinished(char[][] board) {
 
-        if ((board[0][0] == 'X' && board[0][1] == 'X' && board[0][2] == 'X') ||
-            (board[1][0] == 'X' && board[1][1] == 'X' && board[1][2] == 'X') ||
-            (board[2][0] == 'X' && board[2][1] == 'X' && board[2][2] == 'X') ||
-
-            (board[0][0] == 'X' && board[1][0] == 'X' && board[2][0] == 'X') ||
-            (board[0][1] == 'X' && board[1][1] == 'X' && board[2][1] == 'X') ||
-            (board[0][2] == 'X' && board[1][2] == 'X' && board[2][2] == 'X') ||
-
-            (board[0][0] == 'X' && board[1][1] == 'X' && board[2][2] == 'X') ||
-            (board[0][2] == 'X' && board[1][1] == 'X' && board[2][0] == 'X')) {
+        if (whoWon(board, 'X')) {
             printBoard(board);
             System.out.println("Player Wins!");
+            return true;
+        }
+
+        if (whoWon(board, 'O')) {
+            printBoard(board);
+            System.out.println("Computer Wins!");
             return true;
         }
 
@@ -55,6 +52,22 @@ public class Main {
         printBoard(board);
         System.out.println("The game has ended in a tie");
         return true;
+    }
+
+    private static boolean whoWon(char[][] board, char symbol) {
+        if ((board[0][0] == symbol && board[0][1] == symbol && board[0][2] == symbol) ||
+            (board[1][0] == symbol && board[1][1] == symbol && board[1][2] == symbol) ||
+            (board[2][0] == symbol && board[2][1] == symbol && board[2][2] == symbol) ||
+
+            (board[0][0] == symbol && board[1][0] == symbol && board[2][0] == symbol) ||
+            (board[0][1] == symbol && board[1][1] == symbol && board[2][1] == symbol) ||
+            (board[0][2] == symbol && board[1][2] == symbol && board[2][2] == symbol) ||
+
+            (board[0][0] == symbol && board[1][1] == symbol && board[2][2] == symbol) ||
+            (board[0][2] == symbol && board[1][1] == symbol && board[2][0] == symbol)) {
+            return true;
+        }
+        return false;
     }
 
     private static void computerTurn(char[][] board) {
