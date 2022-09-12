@@ -9,7 +9,12 @@ public class Main {
         printBoard(board);
 
         playerTurn(board);
+        printBoard(board);
+        computerTurn(board);
+        printBoard(board);
+    }
 
+    private static void computerTurn(char[][] board) {
         Random random = new Random();
         int computerMove;
         while(true) {
@@ -18,9 +23,8 @@ public class Main {
                 break;
             }
         }
-
+        System.out.println("Computer chose " + computerMove);
         placeMove(board, Integer.toString(computerMove), 'O');
-        printBoard(board);
     }
 
     private static boolean isValidMove(char[][] board, int position) {
