@@ -3,15 +3,20 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
         char[][] board = {{' ', ' ', ' '},
                           {' ', ' ', ' '},
                           {' ', ' ', ' '}};
         printBoard(board);
 
-        playerTurn(board);
-        printBoard(board);
-        computerTurn(board);
-        printBoard(board);
+        while(true) {
+            playerTurn(board,scanner);
+            printBoard(board);
+            computerTurn(board);
+            printBoard(board);
+        }
     }
 
     private static void computerTurn(char[][] board) {
@@ -52,9 +57,7 @@ public class Main {
         }
     }
 
-    private static void playerTurn(char[][] board) {
-        Scanner scanner = new Scanner(System.in);
-
+    private static void playerTurn(char[][] board, Scanner scanner) {
 
         System.out.println("Player One's turn (Enter a placement 1-9)");
         String userInput = scanner.nextLine();
