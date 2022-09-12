@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -11,15 +12,45 @@ public class Main {
 
         playerTurn(board, scanner);
 
+        Random random = new Random();
+        int computerPlay = random.nextInt(9) + 1;
+
+
         printBoard(board);
+    }
+
+    private static boolean isSpaceAvailable(char[][] board, int position) {
+        System.out.println("Player One's turn (Enter a placement 1-9)");
+        String userInput = scanner.nextLine();
+        switch(position) {
+            case 1:
+                return (board[0][0] == ' ');
+            case 2:
+                return (board[0][1] == ' ');
+            case 3:
+                return (board[0][2] == ' ');
+            case 4:
+                return (board[1][0] == ' ');
+            case 5:
+                return (board[1][1] == ' ');
+            case 6:
+                return (board[1][2] == ' ');
+            case 7:
+                return (board[2][0] == ' ');
+            case 8:
+                return (board[2][1] == ' ');
+            case 9:
+                return (board[2][2] == ' ');
+            default:
+                System.out.println("Invalid move :(");
+        }
     }
 
     private static void playerTurn(char[][] board, Scanner scanner) {
         System.out.println("Player One's turn (Enter a placement 1-9)");
-
         String userInput = scanner.nextLine();
 
-        System.out.println(userInput);
+//        System.out.println(userInput);
 
         switch(userInput) {
             case "1":
