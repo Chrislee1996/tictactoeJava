@@ -1,6 +1,5 @@
 import java.util.Random;
 import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
 
@@ -155,7 +154,6 @@ public class Main {
                 System.out.println("Invalid move :(");
         }
     }
-
 
     private static void printBoard(char[][] board) {
         System.out.println(board[0][0] + "|" + board[0][1] + "|" + board[0][2]);
